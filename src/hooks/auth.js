@@ -4,10 +4,11 @@ import { login } from '../api/auth'
 export default function useAuth() {
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
 
-    async function loginUser(username, password) {
+    async function logInUser(username, password) {
         const response = await login(username, password)
-        setIsUserLoggedIn(true)
+        console.log('response: ', response)
+        setIsUserLoggedIn(response)
     }
 
-    return [isUserLoggedIn, loginUser]
+    return [isUserLoggedIn, logInUser]
 }

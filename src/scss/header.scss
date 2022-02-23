@@ -1,0 +1,27 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--size-7);
+
+    & > div.login {
+        margin-left: auto;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: var(--font-weight-5);
+            text-transform: uppercase;
+            background: none;
+            background-color: var(--surface-3);
+            padding: var(--size-2) var(--size-3);
+            border-radius: var(--radius-2);
+
+            i {
+                font-size: var(--size-3);
+                margin-right: var(--size-2);
+            }
+        }
+    }
+}
