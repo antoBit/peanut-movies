@@ -1,0 +1,14 @@
+.movie__detail {
+    .movie__counter {
+        margin-top: var(--size-3);
+        font-size: var(--size-6);
+
+        span {
+            margin-right: var(--size-3);
+
+            &:hover {
+                animation: var(--animation-scale-up) forwards;
+            }
+        }
+    }
+}

@@ -1,2 +1,20 @@
+@use 'use/fonts';
 @import 'open-props/style';
 @import 'open-props/normalize';
+
+:root {
+    --brand: #f55055;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    padding: var(--size-3);
+}
+
+.back {
+    span {
+        font-size: var(--size-7);
+        cursor: pointer;
+    }
+}

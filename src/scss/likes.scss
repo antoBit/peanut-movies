@@ -1,0 +1,32 @@
+.movie__counter {
+    bottom: 0.5rem;
+    right: 0.5rem;
+
+    span {
+        cursor: pointer;
+
+        i {
+            margin-right: 0.5rem;
+
+            &.icon-thumbs-up {
+                &:hover {
+                    color: var(--green-7);
+                }
+            }
+
+            &.icon-thumbs-down {
+                &:hover {
+                    color: var(--red-7);
+                }
+            }
+        }
+
+        &:hover {
+            animation: var(--animation-bounce) forwards;
+        }
+
+        &:last-of-type {
+            margin-left: 0.5rem;
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './routes/home'
+import Movie from './routes/movie'
 import './scss/style.scss'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
         <main>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="test" element={<p>Test</p>} />
+                <Route path="/:id" element={<Movie />} />
                 <Route
                     path="*"
                     element={
