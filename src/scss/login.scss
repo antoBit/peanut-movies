@@ -1,0 +1,26 @@
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    width: 30%;
+    background-color: var(--surface-3);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-2);
+    margin: 0 auto;
+    padding: var(--size-3);
+
+    input {
+        margin: var(--size-3) var(--size-5);
+
+        &[type='submit'] {
+            padding: var(--size-2) var(--size-3);
+            border-radius: var(--radius-2);
+
+            &:hover {
+                background-color: var(--surface-2);
+            }
+        }
+    }
+}

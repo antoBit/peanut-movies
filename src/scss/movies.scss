@@ -11,6 +11,8 @@
     ul {
         display: flex;
         flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
         gap: var(--size-4);
         list-style-type: none;
         margin: var(--size-4) 0;
@@ -77,6 +79,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px dashed var(--gray-7);
+            border-radius: var(--radius-2);
 
             button {
                 background: none;

@@ -1,23 +1,27 @@
 import { useContext } from 'react'
 import { Context } from '../utils/context'
+import { useLocation, useNavigate } from 'react-router-dom'
 import GoBack from './back'
 import '../scss/header.scss'
 
 export default function Header() {
-    const { isUserLoggedIn, logInUser } = useContext(Context)
+    const { isUserLoggedIn, logOut } = useContext(Context)
+    const { pathname } = useLocation()
+    const navigate = useNavigate()
+
+    const goToLogin = () => navigate('/login')
 
     return (
         <header>
             <GoBack />
-            <div className="login">
-                {!isUserLoggedIn ? (
-                    <button onClick={() => logInUser('test', 'test')}>
-                        <i className="icon-user"></i> Login
+            {pathname !== '/login' ? (
+                <div className="login">
+                    <button onClick={isUserLoggedIn ? logOut : goToLogin}>
+                        <i className="icon-user"></i>{' '}
+                        {isUserLoggedIn ? 'Logout' : 'Login'}
                     </button>
-                ) : (
-                    <p>Welcome back!</p>
-                )}
-            </div>
+                </div>
+            ) : null}
         </header>
     )
 }

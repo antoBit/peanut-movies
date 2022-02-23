@@ -6,9 +6,10 @@ export default function useAuth() {
 
     async function logInUser(username, password) {
         const response = await login(username, password)
-        console.log('response: ', response)
         setIsUserLoggedIn(response)
     }
 
-    return [isUserLoggedIn, logInUser]
+    const logOut = (isUserLoggedIn) => setIsUserLoggedIn(!isUserLoggedIn)
+
+    return [isUserLoggedIn, logInUser, logOut]
 }

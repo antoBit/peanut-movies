@@ -1,15 +1,8 @@
-import { useContext } from 'react'
-import { Context } from '../utils/context'
-import Spinner from './spinner'
 import { Link } from 'react-router-dom'
 import LikesCounter from './likes'
 import '../scss/movies.scss'
 
-export default function Movies() {
-    const { movies, loadMore } = useContext(Context)
-
-    if (!movies.length) return <Spinner />
-
+export default function Movies({ movies, loadMore }) {
     return (
         <div className="movies__list">
             <h1>Peanut Movies</h1>
