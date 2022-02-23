@@ -10,15 +10,17 @@ export default function Movies({ movies, loadMore }) {
                 {movies.map((movie) => (
                     <li key={movie.id} className="movie">
                         <Link to={`/${movie.id}`}>
-                            <img
-                                src={`https://source.unsplash.com/random/500×500/?${movie.title.replace(
-                                    /\s/g,
-                                    ','
-                                )}`}
-                                width="300"
-                                height="150"
-                                alt={movie.title}
-                            />
+                            <div className="movie__image">
+                                <img
+                                    src={`https://source.unsplash.com/random/500×500/?${movie.title.replace(
+                                        /\s/g,
+                                        ','
+                                    )}`}
+                                    width="300"
+                                    height="150"
+                                    alt={movie.title}
+                                />
+                            </div>
                             <p className="movie__title">{movie.title}</p>
                             <LikesCounter movie={movie} />
                         </Link>
