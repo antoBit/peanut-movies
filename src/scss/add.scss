@@ -1,0 +1,27 @@
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 300px;
+    width: 30%;
+    background-color: var(--surface-3);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-2);
+    margin: 0 auto;
+    padding: var(--size-3);
+
+    input,
+    textarea {
+        margin: var(--size-3) 0;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        resize: none;
+    }
+}

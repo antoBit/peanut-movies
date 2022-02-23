@@ -55,3 +55,16 @@ export async function dislikeMovie(id) {
         console.log(error)
     }
 }
+
+export async function addMovie(title, description) {
+    try {
+        const response = await axios.post(`/movies/`, {
+            movie: { title, description },
+        })
+        const { status } = response
+
+        return status === 200
+    } catch (error) {
+        console.log(error)
+    }
+}

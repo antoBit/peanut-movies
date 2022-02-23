@@ -1,10 +1,11 @@
-import useMovies from '../hooks/movies'
+import { useContext } from 'react'
+import { Context } from '../utils/context'
 import '../scss/likes.scss'
 
 export default function LikesCounter({
     movie: { id, like_count, dislike_count },
 }) {
-    const [, , like, dislike] = useMovies()
+    const { like, dislike } = useContext(Context)
 
     const onClickLike = (event) => {
         event.preventDefault()

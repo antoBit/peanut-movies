@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { Context } from '../utils/context'
-import { getMovies, likeMovie, dislikeMovie } from '../api/movies'
+import { getMovies, likeMovie, dislikeMovie, addMovie } from '../api/movies'
 import { useNavigate } from 'react-router-dom'
 
 export default function useMovies() {
@@ -34,5 +34,10 @@ export default function useMovies() {
         dislikeMovie(id)
     }
 
-    return [movies, loadMore, like, dislike]
+    const add = (title, description) => {
+        addMovie(title, description)
+        navigate('/')
+    }
+
+    return [movies, loadMore, like, dislike, add]
 }

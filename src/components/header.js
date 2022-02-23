@@ -9,6 +9,7 @@ export default function Header() {
     const { pathname } = useLocation()
     const navigate = useNavigate()
 
+    const addMovie = () => navigate('/add')
     const goToLogin = () => navigate('/login')
 
     return (
@@ -16,6 +17,11 @@ export default function Header() {
             <GoBack />
             {pathname !== '/login' ? (
                 <div className="login">
+                    {isUserLoggedIn ? (
+                        <button className="add-movie" onClick={addMovie}>
+                            <i className="icon-add-solid"></i> Add movie
+                        </button>
+                    ) : null}
                     <button onClick={isUserLoggedIn ? logOut : goToLogin}>
                         <i className="icon-user"></i>{' '}
                         {isUserLoggedIn ? 'Logout' : 'Login'}

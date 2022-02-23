@@ -28,7 +28,7 @@ export default function Movies({ movies, loadMore }) {
                 ))}
                 <li className="addmore">
                     <button onClick={loadMore}>
-                        <i className="icon-add-solid"></i>
+                        <i className="icon-dots-three-horizontal"></i>
                     </button>
                 </li>
             </ul>

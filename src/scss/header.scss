@@ -16,6 +16,9 @@ header {
     }
 
     & > div.login {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-left: auto;
 
         button {
@@ -28,6 +31,11 @@ header {
             background-color: var(--surface-3);
             padding: var(--size-2) var(--size-3);
             border-radius: var(--radius-2);
+
+            &.add-movie {
+                background-color: var(--brand);
+                margin-right: var(--size-3);
+            }
 
             &:hover {
                 background-color: var(--surface-4);
