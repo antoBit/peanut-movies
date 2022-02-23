@@ -16,6 +16,7 @@ form {
 
         &[type='submit'] {
             text-transform: uppercase;
+            color: var(--text-2);
             background-color: var(--brand);
             padding: var(--size-2) var(--size-3);
             border-radius: var(--radius-2);
