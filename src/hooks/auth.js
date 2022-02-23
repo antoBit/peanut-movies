@@ -1,15 +1,18 @@
 import { useState } from 'react'
-import { login } from '../api/auth'
+import { isUserTokenInStorage, login, logout } from '../api/auth'
 
 export default function useAuth() {
-    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(isUserTokenInStorage)
 
     async function logInUser(username, password) {
         const response = await login(username, password)
         setIsUserLoggedIn(response)
     }
 
-    const logOut = (isUserLoggedIn) => setIsUserLoggedIn(!isUserLoggedIn)
+    const logOut = (isUserLoggedIn) => {
+        logout()
+        setIsUserLoggedIn(!isUserLoggedIn)
+    }
 
     return [isUserLoggedIn, logInUser, logOut]
 }

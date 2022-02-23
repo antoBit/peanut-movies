@@ -34,17 +34,9 @@ export async function getMovie(id) {
     }
 }
 
-export async function likeMovie(jwt, id) {
+export async function likeMovie(id) {
     try {
-        const response = await axios.post(
-            `/movies/${id}/like`,
-            {},
-            {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        )
+        const response = await axios.post(`/movies/${id}/like`)
         const { status } = response
 
         return status === 200
@@ -53,17 +45,9 @@ export async function likeMovie(jwt, id) {
     }
 }
 
-export async function dislikeMovie(jwt, id) {
+export async function dislikeMovie(id) {
     try {
-        const response = await axios.post(
-            `/movies/${id}/dislike`,
-            {},
-            {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        )
+        const response = await axios.post(`/movies/${id}/dislike`)
         const { status } = response
 
         return status === 200
@@ -72,19 +56,11 @@ export async function dislikeMovie(jwt, id) {
     }
 }
 
-export async function addMovie(jwt, title, description) {
+export async function addMovie(title, description) {
     try {
-        const response = await axios.post(
-            `/movies/`,
-            {
-                movie: { title, description },
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${jwt}`,
-                },
-            }
-        )
+        const response = await axios.post(`/movies/`, {
+            movie: { title, description },
+        })
         const { status } = response
 
         return status === 200

@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react'
-import { Context } from '../utils/context'
+import { useEffect, useState } from 'react'
+import { isUserTokenInStorage } from '../api/auth'
 import { getMovies, likeMovie, dislikeMovie, addMovie } from '../api/movies'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,26 +17,31 @@ export default function useMovies() {
         fetchMovies()
     }, [currentPage])
 
+    const refreshMovies = async () => {
+        const data = await getMovies(currentPage)
+        setMovies(data)
+    }
+
     const loadMore = () => setCurrentPage((page) => page + 1)
 
-    const authGuard = (isUserLoggedIn) => {
-        if (!isUserLoggedIn) navigate('/login')
+    const authGuard = () => {
+        if (!isUserTokenInStorage()) navigate('/login')
     }
 
-    const like = (isUserLoggedIn, id) => {
-        authGuard(isUserLoggedIn)
-        likeMovie(isUserLoggedIn, id)
+    const like = async (id) => {
+        authGuard()
+        await likeMovie(id)
     }
 
-    const dislike = (isUserLoggedIn, id) => {
-        authGuard(isUserLoggedIn)
-        dislikeMovie(isUserLoggedIn, id)
+    const dislike = async (id) => {
+        authGuard()
+        await dislikeMovie(id)
     }
 
-    const add = (isUserLoggedIn, title, description) => {
-        addMovie(isUserLoggedIn, title, description)
+    const add = (title, description) => {
+        addMovie(title, description)
         navigate('/')
     }
 
-    return [movies, loadMore, like, dislike, add]
+    return [movies, refreshMovies, loadMore, like, dislike, add]
 }

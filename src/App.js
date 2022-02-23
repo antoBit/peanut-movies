@@ -10,7 +10,7 @@ import Add from './routes/add'
 import './scss/style.scss'
 
 function App() {
-    const [movies, loadMore, like, dislike, add] = useMovies()
+    const [movies, refreshMovies, loadMore, like, dislike, add] = useMovies()
     const [isUserLoggedIn, logInUser, logOut] = useAuth()
 
     return (
@@ -18,6 +18,7 @@ function App() {
             <Context.Provider
                 value={{
                     movies,
+                    refreshMovies,
                     loadMore,
                     like,
                     dislike,
