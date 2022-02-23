@@ -1,6 +1,6 @@
 # Peanut Technical Challenge
 
-![CleanShot 2022-02-23 at 14 53 29](https://user-images.githubusercontent.com/22414962/155338320-7207b014-ddbb-41d0-8b2a-e84665fa8186.jpg)
+![CleanShot 2022-02-23 at 15 56 28](https://user-images.githubusercontent.com/22414962/155344640-f4456e60-d2ee-4f8e-8113-449c67233828.jpg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Some of the libraries I used are:
