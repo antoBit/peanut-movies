@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import { getMovie } from '../api/movies'
+import { useNavigate } from 'react-router-dom'
+import { isUserTokenInStorage } from '../api/auth'
+import { dislikeMovie, getMovie, likeMovie } from '../api/movies'
 
 export default function useMovie(id) {
     const [movie, setMovie] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -13,5 +16,26 @@ export default function useMovie(id) {
         fetchMovie()
     }, [id])
 
-    return movie
+    const authGuard = () => {
+        if (!isUserTokenInStorage()) navigate('/login')
+    }
+
+    const like = async (id) => {
+        authGuard()
+        await likeMovie(id)
+        await refreshMovie(id)
+    }
+
+    const dislike = async (id) => {
+        authGuard()
+        await dislikeMovie(id)
+        await refreshMovie(id)
+    }
+
+    const refreshMovie = async (id) => {
+        const data = await getMovie(id)
+        setMovie(data)
+    }
+
+    return [movie, like, dislike]
 }

@@ -22,7 +22,7 @@ export default function Movies({ movies, loadMore }) {
                                 />
                             </div>
                             <p className="movie__title">{movie.title}</p>
-                            <LikesCounter movie={movie} />
+                            <LikesCounter id={movie.id} />
                         </Link>
                     </li>
                 ))}

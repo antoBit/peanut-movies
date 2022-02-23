@@ -18,3 +18,13 @@ The app consist of four main parts:
 2. components
 3. hooks
 4. api
+
+I put most of the logic in three custom hooks, `useMovies`, `useMovie` and `useAuth`.
+
+## Nice to have
+
+There are a couple of things that I didn't add, but I would have liked to have:
+
+1. Redux, in order to handle more complex state changes. I used the Context API, but I would have liked to expand the state management to include which movie the user liked during the session and maybe display those with a different graphic
+2. An image caching mechanism of some sort in order to preserve images between renders and maybe give each movie its own image
+3. A search component to filter out movies
