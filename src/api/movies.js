@@ -91,9 +91,12 @@ export async function addMovie(title, description) {
                 },
             }
         )
-        const { status } = response
+        const {
+            status,
+            data: { movie },
+        } = response
 
-        return status === 200
+        return status === 201 ? movie : false
     } catch (error) {
         console.log(error)
     }

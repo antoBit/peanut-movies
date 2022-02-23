@@ -18,9 +18,13 @@ export default function useMovies() {
 
     const loadMore = () => setCurrentPage((page) => page + 1)
 
-    const add = (title, description) => {
-        addMovie(title, description)
-        navigate('/')
+    const add = async (title, description) => {
+        const movie = await addMovie(title, description)
+
+        if (movie) {
+            setMovies([movie, ...movies])
+            navigate('/')
+        }
     }
 
     return [movies, loadMore, add]
