@@ -18,8 +18,14 @@ export default function useMovies() {
     }, [currentPage])
 
     const refreshMovies = async () => {
-        const data = await getMovies(currentPage)
-        setMovies(data)
+        const updatedMovies = []
+
+        for (let i = 1; i <= currentPage; i++) {
+            const data = await getMovies(i)
+            updatedMovies.push(...data)
+        }
+
+        setMovies(updatedMovies)
     }
 
     const loadMore = () => setCurrentPage((page) => page + 1)
