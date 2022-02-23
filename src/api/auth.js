@@ -7,7 +7,6 @@ export function isUserTokenInStorage() {
 export async function login(username, password) {
     try {
         const response = await axios.post('/session', { username, password })
-        console.log('response: ', response)
         const { data, status } = response
 
         if (status === 200) {

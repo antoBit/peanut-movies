@@ -25,7 +25,7 @@ export default function Login() {
         if (isUserLoggedIn) {
             navigate('/')
         }
-    }, [isUserLoggedIn])
+    }, [isUserLoggedIn, navigate])
 
     if (isLoggingIn) return <Spinner />
 

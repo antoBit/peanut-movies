@@ -11,7 +11,7 @@ export default function useMovie(id) {
         }
 
         fetchMovie()
-    }, [])
+    }, [id])
 
     return movie
 }

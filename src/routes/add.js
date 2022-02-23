@@ -21,7 +21,7 @@ export default function Add() {
         if (!isUserLoggedIn) {
             navigate('/')
         }
-    }, [isUserLoggedIn])
+    }, [isUserLoggedIn, navigate])
 
     return (
         <form onSubmit={onSubmit}>

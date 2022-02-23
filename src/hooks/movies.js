@@ -11,7 +11,7 @@ export default function useMovies() {
     useEffect(() => {
         const fetchMovies = async () => {
             const data = await getMovies(currentPage)
-            setMovies([...movies, ...data])
+            setMovies((movies) => [...movies, ...data])
         }
 
         fetchMovies()
