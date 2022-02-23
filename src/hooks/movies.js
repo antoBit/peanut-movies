@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 export default function useMovies() {
     const [movies, setMovies] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const { isUserLoggedIn } = useContext(Context)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -20,22 +19,22 @@ export default function useMovies() {
 
     const loadMore = () => setCurrentPage((page) => page + 1)
 
-    const authGuard = () => {
+    const authGuard = (isUserLoggedIn) => {
         if (!isUserLoggedIn) navigate('/login')
     }
 
-    const like = (id) => {
-        authGuard()
-        likeMovie(id)
+    const like = (isUserLoggedIn, id) => {
+        authGuard(isUserLoggedIn)
+        likeMovie(isUserLoggedIn, id)
     }
 
-    const dislike = (id) => {
-        authGuard()
-        dislikeMovie(id)
+    const dislike = (isUserLoggedIn, id) => {
+        authGuard(isUserLoggedIn)
+        dislikeMovie(isUserLoggedIn, id)
     }
 
-    const add = (title, description) => {
-        addMovie(title, description)
+    const add = (isUserLoggedIn, title, description) => {
+        addMovie(isUserLoggedIn, title, description)
         navigate('/')
     }
 

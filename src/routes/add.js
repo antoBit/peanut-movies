@@ -14,7 +14,7 @@ export default function Add() {
 
     const onSubmit = async (event) => {
         event.preventDefault()
-        add(title, description)
+        add(isUserLoggedIn, title, description)
     }
 
     useEffect(() => {

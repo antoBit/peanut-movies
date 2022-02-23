@@ -19,7 +19,7 @@ function App() {
                 value={{
                     movies,
                     loadMore,
-                    add,
+                    like,
                     dislike,
                     add,
                     isUserLoggedIn,

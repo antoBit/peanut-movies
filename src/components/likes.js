@@ -5,16 +5,16 @@ import '../scss/likes.scss'
 export default function LikesCounter({
     movie: { id, like_count, dislike_count },
 }) {
-    const { like, dislike } = useContext(Context)
+    const { isUserLoggedIn, like, dislike } = useContext(Context)
 
     const onClickLike = (event) => {
         event.preventDefault()
-        like(id)
+        like(isUserLoggedIn, id)
     }
 
     const onClickDislike = (event) => {
         event.preventDefault()
-        dislike(id)
+        dislike(isUserLoggedIn, id)
     }
 
     return (
