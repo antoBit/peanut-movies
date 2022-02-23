@@ -4,6 +4,17 @@ header {
     justify-content: space-between;
     margin-bottom: var(--size-7);
 
+    .back {
+        span {
+            font-size: var(--size-7);
+            cursor: pointer;
+
+            &:hover {
+                color: var(--brand);
+            }
+        }
+    }
+
     & > div.login {
         margin-left: auto;
 

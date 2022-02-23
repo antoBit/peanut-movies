@@ -11,7 +11,7 @@ export default function Movies({ movies, loadMore }) {
                     <li key={movie.id} className="movie">
                         <Link to={`/${movie.id}`}>
                             <img
-                                src={`https://source.unsplash.com/random/300×500/?${movie.title.replace(
+                                src={`https://source.unsplash.com/random/500×500/?${movie.title.replace(
                                     /\s/g,
                                     ','
                                 )}`}
