@@ -1,12 +1,12 @@
-import useMovies from '../hooks/movies'
-import he from 'he'
+import { useContext } from 'react'
+import { Context } from '../utils/context'
 import Spinner from './spinner'
 import { Link } from 'react-router-dom'
 import LikesCounter from './likes'
 import '../scss/movies.scss'
 
 export default function Movies() {
-    const [movies, loadMore] = useMovies()
+    const { movies, loadMore } = useContext(Context)
 
     if (!movies.length) return <Spinner />
 
@@ -26,9 +26,7 @@ export default function Movies() {
                                 height="150"
                                 alt={movie.title}
                             />
-                            <p className="movie__title">
-                                {he.decode(movie.title)}
-                            </p>
+                            <p className="movie__title">{movie.title}</p>
                             <LikesCounter movie={movie} />
                         </Link>
                     </li>

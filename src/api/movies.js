@@ -1,6 +1,5 @@
-import axios from 'axios'
-
-axios.defaults.baseURL = 'https://peanut-movies.herokuapp.com/api/v1'
+import axios from './config'
+import he from 'he'
 
 export async function getMovies(page = 1) {
     try {
@@ -9,7 +8,11 @@ export async function getMovies(page = 1) {
         const {
             data: { movies },
         } = response
-        return movies
+
+        return movies.map((movie) => ({
+            ...movie,
+            title: he.decode(movie.title),
+        }))
     } catch (error) {
         console.log(error)
     }
@@ -22,7 +25,12 @@ export async function getMovie(id) {
         const {
             data: { movie },
         } = response
-        return movie
+
+        return {
+            ...movie,
+            title: he.decode(movie.title),
+            description: he.decode(movie.description),
+        }
     } catch (error) {
         console.log(error)
     }
