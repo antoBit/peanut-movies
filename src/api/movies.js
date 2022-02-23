@@ -36,7 +36,17 @@ export async function getMovie(id) {
 
 export async function likeMovie(id) {
     try {
-        const response = await axios.post(`/movies/${id}/like`)
+        const response = await axios.post(
+            `/movies/${id}/like`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${window.localStorage.getItem(
+                        'userToken'
+                    )}`,
+                },
+            }
+        )
         const { status } = response
 
         return status === 200
@@ -47,7 +57,17 @@ export async function likeMovie(id) {
 
 export async function dislikeMovie(id) {
     try {
-        const response = await axios.post(`/movies/${id}/dislike`)
+        const response = await axios.post(
+            `/movies/${id}/dislike`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${window.localStorage.getItem(
+                        'userToken'
+                    )}`,
+                },
+            }
+        )
         const { status } = response
 
         return status === 200
@@ -58,9 +78,19 @@ export async function dislikeMovie(id) {
 
 export async function addMovie(title, description) {
     try {
-        const response = await axios.post(`/movies/`, {
-            movie: { title, description },
-        })
+        const response = await axios.post(
+            `/movies/`,
+            {
+                movie: { title, description },
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${window.localStorage.getItem(
+                        'userToken'
+                    )}`,
+                },
+            }
+        )
         const { status } = response
 
         return status === 200

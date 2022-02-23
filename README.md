@@ -1,4 +1,4 @@
-# Peanut Technical Challenge
+# 🥜 Technical Challenge
 
 ![CleanShot 2022-02-23 at 15 56 28](https://user-images.githubusercontent.com/22414962/155344640-f4456e60-d2ee-4f8e-8113-449c67233828.jpg)
 
@@ -10,21 +10,29 @@ Some of the libraries I used are:
 
 For the sake of writing this app fast I decided to use [Open Props](https://open-props.style/) which is a collection of ready-to-use CSS variables and utilities (like a built-in light/dark theme), but I didn't use anything that I couldn't be able to write myself :)
 
-## App Structure
+## 🌳 App Structure
 
-The app consist of four main parts:
+The app is structured in four main parts:
 
 1. routes
 2. components
 3. hooks
 4. api
 
+For the state management I used the Context API from React.
 I put most of the logic in three custom hooks, `useMovies`, `useMovie` and `useAuth`.
 
-## Nice to have
+## 🦄 Nice to have
 
 There are a couple of things that I didn't add, but I would have liked to have:
 
 1. Redux, in order to handle more complex state changes. I used the Context API, but I would have liked to expand the state management to include which movie the user liked during the session and maybe display those with a different graphic
 2. An image caching mechanism of some sort in order to preserve images between renders and maybe give each movie its own image
-3. A search component to filter out movies
+3. A search component to filter movies.
+4. Success messages when adding a movie or liking/disliking a movie.
+5. Error handling, both for the APIs and the UI.
+
+## 💻 Development
+
+The app can be started with `yarn start` and built with `yarn build`.
+It is deployed [here](https://peanut-movies.vercel.app/) 🚀

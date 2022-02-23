@@ -22,14 +22,20 @@ export default function useMovie(id) {
 
     const like = async (id) => {
         authGuard()
-        await likeMovie(id)
-        await refreshMovie(id)
+        const success = await likeMovie(id)
+
+        if (success) {
+            await refreshMovie(id)
+        }
     }
 
     const dislike = async (id) => {
         authGuard()
-        await dislikeMovie(id)
-        await refreshMovie(id)
+        const success = await dislikeMovie(id)
+
+        if (success) {
+            await refreshMovie(id)
+        }
     }
 
     const refreshMovie = async (id) => {
