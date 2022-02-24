@@ -24,26 +24,29 @@ export default function Add() {
     }, [isUserLoggedIn, navigate])
 
     return (
-        <form onSubmit={onSubmit}>
-            <label htmlFor="title">Tile:</label>
-            <input
-                type="text"
-                name="title"
-                placeholder="Title"
-                value={title}
-                onChange={onChangeTitle}
-                required
-            />
-            <label htmlFor="description">Description:</label>
-            <textarea
-                name="description"
-                rows={5}
-                cols={50}
-                value={description}
-                onChange={onChangeDescription}
-                required
-            />
-            <input type="submit" value="Add movie! 🍿" />
-        </form>
+        <div className="form">
+            <h1>Add a movie! 🍿</h1>
+            <form onSubmit={onSubmit}>
+                <label htmlFor="title">Tile:</label>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    value={title}
+                    onChange={onChangeTitle}
+                    required
+                />
+                <label htmlFor="description">Description:</label>
+                <textarea
+                    name="description"
+                    rows={5}
+                    cols={50}
+                    value={description}
+                    onChange={onChangeDescription}
+                    required
+                />
+                <input type="submit" value="Add movie" />
+            </form>
+        </div>
     )
 }

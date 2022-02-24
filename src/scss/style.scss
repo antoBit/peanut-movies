@@ -10,4 +10,13 @@ main {
     width: 100%;
     height: 100vh;
     padding: var(--size-3);
+
+    div.form {
+        h1 {
+            font-size: var(--size-fluid-4);
+            text-align: center;
+            margin-bottom: var(--size-5);
+            max-inline-size: 100%;
+        }
+    }
 }

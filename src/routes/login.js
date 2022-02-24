@@ -30,26 +30,29 @@ export default function Login() {
     if (isLoggingIn) return <Spinner />
 
     return (
-        <form onSubmit={onSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value={userName}
-                onChange={onChangeUserName}
-                required
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={onChangeUserPassword}
-                required
-            />
-            <input type="submit" value="Login" />
-        </form>
+        <div className="form">
+            <h1>Login</h1>
+            <form onSubmit={onSubmit}>
+                <label htmlFor="username">Username:</label>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    value={userName}
+                    onChange={onChangeUserName}
+                    required
+                />
+                <label htmlFor="password">Password:</label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={onChangeUserPassword}
+                    required
+                />
+                <input type="submit" value="Login" />
+            </form>
+        </div>
     )
 }
